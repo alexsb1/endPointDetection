@@ -14,7 +14,7 @@ smooth the signal before detecting the rate of change.
 A large value of order causes more smoothing.
 
 ## Usage
-`endPoint(df, dt = 10, smoothing = 5, scanrate = 6.4, timeCol = "Time", ca44 = "Ca44")`
+`endPoint(df, dt = 10, smoothing = 5, timeCol = "Time", Ca44 = "Ca44", profile = "TRUE",  timeUnits = "seconds")`
 
 ## Arguments
 **df** is your cleaned dataframe containing a single analysis
@@ -29,24 +29,37 @@ Default = 10
 The bigger the number the more smoothing.
 Default = 5
 
-**scanRate** is the frequency of signal detection. The number of rows of data per second in your dataframe.
-Default = 6.4
-
 **timeCol** is the column title in your dataframe containing the time stamp in your TRA.
 Default = "Time"
 
-**Ca44** is the column title in your dataframe containing the data 44Ca.
-This could be any column of numerical data that you want to detect the endpoint,
-not necessarily 44Ca or any particular elemental isotope.
+**Ca44** is the column title in your dataframe containing the numerical data you want to sue to detect the endpoint.
+Mostly this is "44Ca" containing a calcium isotope counts per second.
+This could be any column of numerical data that you want to detect the endpoint, not necessarily <sup>44</sup>Ca or any particular elemental isotope.
 Default = "Ca44"
+
+**profile** is a visualisation of the endpoint detection mechanism in ggplot. This argument is logical.
+Default = "TRUE"
+
+**timeUnits** is the units that your time resolved analysis is measured in. This is the units of the timeCol.
+This argument is only necessary if the argument `profile = "TRUE"`.
+Default = "seconds"
 
 ## Details
 This function was designed for detecting when a laser had ablated through a foraminifera test and keeping only the outputted rows of a time resolved analysis that were relevant by returning a start time and end time of desired data.
-The default values are based on outputs from an Agilent 8900 ICP-MS Triple Quad and a New Wave Research NWR193 laser ablation unit at the University of Southampton, Waterfront campus, National Oceanography Centre.
+The default values are based on outputs from an Agilent 8900 ICP-MS Triple Quad and a New Wave Research NWR193 laser ablation unit at the University of Southampton, Waterfront campus, National Oceanography Centre, UK.
 
 ## Notes
 
+
+Take note that parsing `profile = "TRUE"` substantially increases the time taken for this function to run.
+
+The user can add a title to this plot after running this function by adding the following lines of code
+`dfReturn$profile + labs(title = "Title text")`
+
 ## Examples
+
+Example data is located at https://github.com/alexsb1/endpointDetection/
+
 
 
 ## Reference
