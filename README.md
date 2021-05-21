@@ -3,10 +3,8 @@
 ## Description
 This function imports a single dataframe containing one time resolved analysis laser ablation mass spectrometry analysis of a foraminifera (or other carbonate shell), then detects when the laser has burnt through the foraminifera test as a function of change in 44Ca over time.
 
-Calculate first derivative (rate of change) to identify when the laser blasts through the chamber
-Calculates the change of signal (cps) per change of time
-Takes the absolute (modulus) value of this rate of change
-Assigns a zero as first value and then the rate of change for each corresponding time interval.
+Calculate first derivative (rate of change) to identify when the laser blasts through the chamber.
+Calculates the change of signal (counts per second) per change of time.
 A zero is used as a NA placeholder because there are n-1 difference values than n observations.
 
 44Ca is used to identify the time taken to blast through the chamber wall
@@ -41,7 +39,7 @@ Default = "Ca44"
 Default = "TRUE"
 
 **timeUnits** is the units that your time resolved analysis is measured in. This is the units of the timeCol.
-This argument is only necessary if the argument `profile = "TRUE"`.
+This argument is a string and is only necessary if the argument `profile = "TRUE"`.
 Default = "seconds"
 
 ## Details
@@ -49,6 +47,11 @@ This function was designed for detecting when a laser had ablated through a fora
 The default values are based on outputs from an Agilent 8900 ICP-MS Triple Quad and a New Wave Research NWR193 laser ablation unit at the University of Southampton, Waterfront campus, National Oceanography Centre, UK.
 
 ## Notes
+The output of this function are returned in a new dataframe called dfReturn.
+* `dfReturn$df` contains your dataframe with only the rows that are between your startTime and endTime.
+* `dfReturn$startTime` contains the earliest time in your TRA as a numerical value.
+* `dfReturn$endTime` contains the last timestep before the laser ablated through the carbonate shell in your TRA as a numerical value.
+* `dfReturn$profile` contains visualisation of your TRA identifying where the laser ablated through the carbonate shell as a ggplot object.
 
 
 Take note that parsing `profile = "TRUE"` substantially increases the time taken for this function to run.

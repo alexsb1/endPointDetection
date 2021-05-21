@@ -52,7 +52,6 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", Ca44 = "Ca44"
   
   # Calculate first derivative (rate of change) to identify when the laser blasts through the chamber
   # Calculates the change of signal (cps) per change of time
-  # Takes the absolute (modulus) value of this rate of change
   # Assigns a zero as first value and then the rate of change for each corresponding time interval.
   # A zero is used as a NA placeholder because there are n-1 difference values than n observations.
   
