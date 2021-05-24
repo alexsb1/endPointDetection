@@ -67,7 +67,7 @@ The user can add a title to this plot after running this function by adding the 
 
 Example data is located at https://github.com/alexsb1/endpointDetection/
 
-`data1 <- read.csv("exampleData/foram-72-shot-3.csv", header = TRUE)
+`data1 <- read.csv("exampleData/foram-72-shot-3.csv", header = TRUE)`
 
 * The simplest usage, using all the default values. \
 `endPoint(data1)`
