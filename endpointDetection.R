@@ -17,12 +17,19 @@ library("tidyverse")
 library("smooth")
 
 # Load example data
-data1 <- read.csv("exampleData/Foram-72-shot-3.csv", header = TRUE)
-
+# data1 <- read.csv("exampleData/foram-72-shot-3.csv", header = TRUE)
+# data2 <- read.csv("exampleData/foram-166-shot-7.csv", header = TRUE)
+# data3 <- read.csv("exampleData/foram-174-shot-4.csv", header = TRUE)
+# data4 <- read.csv("exampleData/coral1.csv", header = TRUE)
+# data5 <- read.csv("exampleData/coral2.csv", header = TRUE)
+# data6 <- read.csv("exampleData/coral3.csv", header = TRUE)
+# data7 <- read.csv("exampleData/coral4.csv", header = TRUE)
+# data8 <- read.csv("exampleData/coral5.csv", header = TRUE)
+# data9 <- read.csv("exampleData/coral6.csv", header = TRUE)
 
 # Function to detect endpoint
 
-endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", Ca44 = "Ca44", profile = "TRUE",  timeUnits = "seconds"){
+endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds"){
   # Understanding inputs
   
   # df is your cleaned dataframe containing a single analysis
@@ -45,7 +52,7 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", Ca44 = "Ca44"
   # timeCol is the column title in your dataframe containing the time stamp in your TRA.
   # Default = "Time"
   
-  # Ca44 is the column title in your dataframe containing the data 44Ca.
+  # signalCol is the column title in your dataframe containing the data 44Ca.
   # This could be any column of numerical data that you want to detect the endpoint,
   # not necessarily 44Ca or any particular elemental isotope.
   # Default = "Ca44"
@@ -58,11 +65,11 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", Ca44 = "Ca44"
   # 44Ca is used to identify the time taken to blast through the chamber wall
   # smooth the signal before detecting the rate of change.
   # A large value of order causes more smoothing
-  df$Ca44sma <- sma(df$Ca44, order = smoothing) %>% .$fitted %>% as.numeric()
+  df$Ca44sma <- sma(df[, grep(signalCol, names(df))[1]], order = smoothing) %>% .$fitted %>% as.numeric()
   
   
   # This gives change as absolute
-  Ca44dydt <- diff(df$Ca44sma, lag = dt) / diff(df$Time, lag = dt)
+  Ca44dydt <- diff(df$Ca44sma, lag = dt) / diff(df[, grep(timeCol, names(df))[1]], lag = dt)
   Ca44dydt <- c(rep(0, times = dt), Ca44dydt)
   Ca44dydt <- (Ca44dydt - min(Ca44dydt)) / (max(Ca44dydt) - min(Ca44dydt)) #scaled to 0-1
   df$Ca44dydt <- Ca44dydt
@@ -82,11 +89,11 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", Ca44 = "Ca44"
   #Identify the time ($Time) in ms when the maximum rate of change in 44Ca occurs.
   # The subtraction of dt/x is in place to backtrack the zero dydt values at the start. This results in the endTime being before the sharp signal cutoff.
   # Notice that dt is in observations, but endTime in in seconds.
-  endTime <- subset(df$Time, df$Ca44dydt == min(df$Ca44dydt)) - tailSeconds
+  endTime <- subset(df[, grep(timeCol, names(df))[1]], df$Ca44dydt == min(df$Ca44dydt)) - tailSeconds
   
   # A consequence of legacy code
-  startTime <- min(df$Time)
-  maxTime <- max(df$Time)
+  startTime <- min(df[, grep(timeCol, names(df))[1]])
+  maxTime <- max(df[, grep(timeCol, names(df))[1]])
   
   # Make a dataframe to append the outputs from this function to.
   # This dataframe will be returned outside this function
@@ -98,16 +105,16 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", Ca44 = "Ca44"
   dfReturn$endTime <- endTime # The last time step in your analysis after this function
   
   if(profile == "TRUE"){
-    dfReturn$profile <- ggplot(df, aes(x=Time)) +
+    dfReturn$profile <- ggplot(df, aes(x=df[, grep(timeCol, names(df))[1]])) +
       annotate("rect", xmin = startTime - 10, xmax = startTime, ymin = -Inf, ymax = Inf, fill ="red", alpha = 0.5)+ #change -10 to a percentage
       annotate("rect", xmin = endTime, xmax = Inf, ymin = -Inf, ymax = Inf, fill = "red", alpha = 0.5)+
       geom_point(aes(y=Ca44Scaled, colour = "Signal")) +
       geom_line(aes(y=Ca44Scaled, colour = "Signal")) +
       geom_line(aes(y=Ca44dydt, colour = "dydt")) +
       geom_vline(xintercept = endTime, colour = "purple")+
-      geom_label(x = startTime - 10 , y = median(abs(scale(df$Ca44, center = TRUE))), label = paste("TRA started at", startTime, timeUnits), size = 2, hjust = "left")+
-      geom_label(x = endTime, y = mean(abs(scale(df$Ca44, center = TRUE))), label = paste("endTime \n (largest signal change - (dt/scanRate)) \n at", endTime, timeUnits), size = 2)+
-      labs(y = paste("Scaled", Ca44, "signal and rate of change"),
+      geom_label(x = startTime - 10 , y = median(abs(scale(df[, grep(signalCol, names(df))[1]], center = TRUE))), label = paste("TRA started at", startTime, timeUnits), size = 2, hjust = "left")+
+      geom_label(x = endTime, y = mean(abs(scale(df[, grep(signalCol, names(df))[1]], center = TRUE))), label = paste("endTime \n (largest signal change - (dt/scanRate)) \n at", endTime, timeUnits), size = 2)+
+      labs(y = paste("Scaled", signalCol, "signal and rate of change"),
            x = paste("Time elapsed in", timeUnits),
            subtitle = paste("With a smoothing of", smoothing, "observations, a dt of", dt, "observations and (dt/scanRate) of", tailSeconds, timeUnits)
       )+

@@ -12,7 +12,7 @@ smooth the signal before detecting the rate of change.
 A large value of order causes more smoothing.
 
 ## Usage
-`endPoint(df, dt = 10, smoothing = 5, timeCol = "Time", Ca44 = "Ca44", profile = "TRUE",  timeUnits = "seconds")`
+`endPoint(df, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")`
 
 ## Arguments
 **df** is your cleaned dataframe containing a single analysis
@@ -30,7 +30,7 @@ Default = 5
 **timeCol** is the column title in your dataframe containing the time stamp in your TRA.
 Default = "Time"
 
-**Ca44** is the column title in your dataframe containing the numerical data you want to sue to detect the endpoint.
+**signalCol** is the column title in your dataframe containing the numerical data you want to sue to detect the endpoint.
 Mostly this is "44Ca" containing a calcium isotope counts per second.
 This could be any column of numerical data that you want to detect the endpoint, not necessarily <sup>44</sup>Ca or any particular elemental isotope.
 Default = "Ca44"
@@ -67,7 +67,7 @@ The user can add a title to this plot after running this function by adding the 
 
 Example data is located at https://github.com/alexsb1/endpointDetection/
 
-`data1 <- read.csv("exampleData/Foram-72-shot-3.csv", header = TRUE)
+`data1 <- read.csv("exampleData/foram-72-shot-3.csv", header = TRUE)
 
 * The simplest usage, using all the default values. \
 `endPoint(data1)`
@@ -91,7 +91,6 @@ You should cite this function as
 `Searle-Barnes C A, 2021, https://github.com/alexsb1/endPointDetection`
 
 This is released under GNU General Public License v3.0
-
 
 
 
