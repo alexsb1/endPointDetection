@@ -75,7 +75,7 @@ Example data is located at https://github.com/alexsb1/endpointDetection/
 * Specifying custom dt and smoothing arguments. \
 `endPoint(data1, dt = 15, smoothing = 10)`
 
-* Specifying a different dataframe column to use for detection by passing the "Mg24" dataframe heading as substitute for Ca44 and using default dt and smoothing. \n
+* Specifying a different dataframe column to use for detection by passing the "Mg24" dataframe heading as substitute for Ca44 and using default dt and smoothing. \
 `endPoint(data1, signalCol = "Mg24")`
 
 * Specifying to not make a profile plot. This can save a substantial amount of time. \
