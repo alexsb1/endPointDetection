@@ -47,7 +47,7 @@ This function was designed for detecting when a laser had ablated through a fora
 The default values are based on outputs from an Agilent 8900 ICP-MS Triple Quad and a New Wave Research NWR193 laser ablation unit at the University of Southampton, Waterfront campus, National Oceanography Centre, UK.
 
 ## Notes
-The output of this function are returned in a new dataframe called dfReturn.
+The output of this function is returned as a new dataframe called dfReturn in your global environment.
 
 * `dfReturn$df` contains your dataframe with only the rows that are between your startTime and endTime.
 

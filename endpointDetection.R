@@ -17,15 +17,10 @@ library("tidyverse")
 library("smooth")
 
 # Load example data
-# data1 <- read.csv("exampleData/foram-72-shot-3.csv", header = TRUE)
-# data2 <- read.csv("exampleData/foram-166-shot-7.csv", header = TRUE)
-# data3 <- read.csv("exampleData/foram-174-shot-4.csv", header = TRUE)
-# data4 <- read.csv("exampleData/coral1.csv", header = TRUE)
-# data5 <- read.csv("exampleData/coral2.csv", header = TRUE)
-# data6 <- read.csv("exampleData/coral3.csv", header = TRUE)
-# data7 <- read.csv("exampleData/coral4.csv", header = TRUE)
-# data8 <- read.csv("exampleData/coral5.csv", header = TRUE)
-# data9 <- read.csv("exampleData/coral6.csv", header = TRUE)
+ data1 <- read.csv("exampleData/foram-72-shot-3.csv", header = TRUE)
+ data2 <- read.csv("exampleData/foram-166-shot-7.csv", header = TRUE)
+ data3 <- read.csv("exampleData/foram-174-shot-4.csv", header = TRUE)
+ data4 <- read.csv("exampleData/coral6.csv", header = TRUE)
 
 # Function to detect endpoint
 
@@ -131,6 +126,8 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "
     # dfReturn$profile + labs(title = "Title text")
     
   }
+  
+  .GlobalEnv$dfReturn <- dfReturn
   
   return(dfReturn)
   
