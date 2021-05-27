@@ -30,7 +30,7 @@ Default = 5
 **timeCol** is the column title in your dataframe containing the time stamp in your TRA.
 Default = "Time"
 
-**signalCol** is the column title in your dataframe containing the numerical data you want to sue to detect the endpoint.
+**signalCol** is the column title in your dataframe containing the numerical data you want to use to detect the endpoint.
 Mostly this is "44Ca" containing a calcium isotope counts per second.
 This could be any column of numerical data that you want to detect the endpoint, not necessarily <sup>44</sup>Ca or any particular elemental isotope.
 Default = "Ca44"
