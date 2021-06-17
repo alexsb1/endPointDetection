@@ -1,7 +1,7 @@
 # Laser ablation mass spectrometry automatic end point blast through detection
 
 ## Description
-This function imports a single dataframe containing one time resolved analysis laser ablation mass spectrometry analysis of a foraminifera (or other carbonate shell), then detects when the laser has burnt through the foraminifera test as a function of change in <sup>44</supCa over time.
+This function imports a single dataframe containing one time resolved analysis laser ablation mass spectrometry analysis of a foraminifera (or other carbonate shell), then detects when the laser has burnt through the foraminifera test as a function of change in <sup>44</sup>Ca over time.
 
 Calculate first derivative (rate of change) to identify when the laser blasts through the chamber.
 Calculates the change of signal (counts per second) per change of time.
