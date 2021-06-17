@@ -31,8 +31,9 @@ Default = 5
 Default = "Time"
 
 **signalCol** is the column title in your dataframe containing the numerical data you want to use to detect the endpoint.
-Mostly this is "44Ca" containing a calcium isotope counts per second.
+Mostly this is "Ca44" containing a calcium isotope counts per second.
 This could be any column of numerical data that you want to detect the endpoint, not necessarily <sup>44</sup>Ca or any particular elemental isotope.
+The dataframe used in the examples uses "Ca44" to refer to <sup>44</sup>Ca.
 Default = "Ca44"
 
 **profile** is a visualisation of the endpoint detection mechanism in ggplot. This argument is logical.
