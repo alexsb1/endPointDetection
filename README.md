@@ -81,7 +81,7 @@ Example data is located at https://github.com/alexsb1/endpointDetection/
 
 * Specifying to not make a profile plot. This can save a substantial amount of time. \
 _Note that if you use a time unit other than seconds you must specify these here._ \
-`endPoint(data, profile = "FALSE", timeUnits = "seconds")`
+`endPoint(data1, profile = "FALSE", timeUnits = "seconds")`
 
 
 
