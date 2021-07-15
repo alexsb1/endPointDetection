@@ -1,7 +1,7 @@
 # Laser ablation mass spectrometry automatic end point blast through detection
 
 ## Description
-This function imports a single dataframe containing one time resolved analysis laser ablation mass spectrometry analysis of a foraminifera (or other carbonate shell), then detects when the laser has burnt through the foraminifera test as a function of change in 44Ca over time.
+This function imports a single dataframe containing one time resolved analysis laser ablation mass spectrometry analysis of a foraminifera (or other carbonate shell), then detects when the laser has burnt through the foraminifera test as a function of change in <sup>44</sup>Ca over time.
 
 Calculate first derivative (rate of change) to identify when the laser blasts through the chamber.
 Calculates the change of signal (counts per second) per change of time.
@@ -31,8 +31,9 @@ Default = 5
 Default = "Time"
 
 **signalCol** is the column title in your dataframe containing the numerical data you want to use to detect the endpoint.
-Mostly this is "44Ca" containing a calcium isotope counts per second.
+Mostly this is "Ca44" containing a calcium isotope counts per second.
 This could be any column of numerical data that you want to detect the endpoint, not necessarily <sup>44</sup>Ca or any particular elemental isotope.
+The dataframe used in the examples uses "Ca44" to refer to <sup>44</sup>Ca.
 Default = "Ca44"
 
 **profile** is a visualisation of the endpoint detection mechanism in ggplot. This argument is logical.
@@ -80,7 +81,7 @@ Example data is located at https://github.com/alexsb1/endpointDetection/
 
 * Specifying to not make a profile plot. This can save a substantial amount of time. \
 _Note that if you use a time unit other than seconds you must specify these here._ \
-`endPoint(data, profile = "FALSE", timeUnits = "seconds")`
+`endPoint(data1, profile = "FALSE", timeUnits = "seconds")`
 
 
 
