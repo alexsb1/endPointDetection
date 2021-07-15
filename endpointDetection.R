@@ -17,10 +17,10 @@ library("tidyverse")
 library("smooth")
 
 # Load example data
- data1 <- read.csv("exampleData/foram-72-shot-3.csv", header = TRUE)
- data2 <- read.csv("exampleData/foram-166-shot-7.csv", header = TRUE)
- data3 <- read.csv("exampleData/foram-174-shot-4.csv", header = TRUE)
- data4 <- read.csv("exampleData/coral6.csv", header = TRUE)
+# data1 <- read.csv("exampleData/foram-72-shot-3.csv", header = TRUE)
+# data2 <- read.csv("exampleData/foram-166-shot-7.csv", header = TRUE)
+# data3 <- read.csv("exampleData/foram-174-shot-4.csv", header = TRUE)
+# data4 <- read.csv("exampleData/coral6.csv", header = TRUE)
 
 # Function to detect endpoint
 
