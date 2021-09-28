@@ -78,7 +78,7 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "
   #  exceededThresholdSubset <- subset(df, df$Ca44dydt >= dydtThreshold)
   
   # the number of seconds to remove after end point detection (endTime)
-  tailSeconds <- dt/scanRate
+  tailSeconds <- (scanRate * dt) / 2 # the number of seconds to remove after end point detection (endTime)
   tailSeconds <- round(tailSeconds, digits = 3) #not working with pipes
   
   #Identify the time ($Time) in ms when the maximum rate of change in 44Ca occurs.
