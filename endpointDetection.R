@@ -29,11 +29,10 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "
   
   # df is your cleaned dataframe containing a single analysis
   
-  # dt controls the change in time elapsed between data points (delta time).
-  # An infinitesimal value does not produce a sharp dx/dt graph peak (max value)
-  # for the diff() function value is used in the lag argument.
-  # Use a lower value for a fast blast through of chamber wall.
-  # Default = 10 
+  # dt is an integer that controls the number of observations (rows)
+  # are used in calculating a rolling lagged difference in 44Ca signal.
+  # Using a lower value for a faster blast through of chamber wall can improve end point sensitivity.
+  # Default = 10
   
   # smoothing controls how much smoothing to apply over the dt period.
   # The bigger the number the more smoothing.
@@ -78,7 +77,7 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "
   #  exceededThresholdSubset <- subset(df, df$Ca44dydt >= dydtThreshold)
   
   # the number of seconds to remove after end point detection (endTime)
-  tailSeconds <- (scanRate * dt) / 2 # the number of seconds to remove after end point detection (endTime)
+  tailSeconds <- (dt / scanRate) # the number of seconds to remove after end point detection (endTime)
   tailSeconds <- round(tailSeconds, digits = 3) #not working with pipes
   
   #Identify the time ($Time) in ms when the maximum rate of change in 44Ca occurs.
