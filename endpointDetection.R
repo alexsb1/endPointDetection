@@ -13,7 +13,8 @@
 #                a loop if you have multiple endpoints to detect.
 
 # Libraries
-library("tidyverse")
+library("dplyr")
+library("ggplot2")
 library("smooth")
 
 # Load example data
