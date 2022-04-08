@@ -1,6 +1,6 @@
 Package: lablaster
 Title: Laser Ablation Blast Through Endpoint Detection
-Version: 0.0.0.9000
+Version: 0.0.1.0000
 Authors@R: 
     person("Alex", "Searle-Barnes", , "c.j.a.searle-barnes@soton.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0389-7717", URL = "https://github.com/alexsb1"))

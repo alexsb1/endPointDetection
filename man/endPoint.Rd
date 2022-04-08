@@ -49,6 +49,6 @@ The function identifies the maximum rate of signal change, locates the correspon
 The result (endTime) is the time stamp of the last observation while the laser is still focussed the desired target.
 }
 \examples{
-load(file = "data/foram72shot3.rda")
+load(file = "foram72shot3")
 endpoint(df = foram72shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
 }
