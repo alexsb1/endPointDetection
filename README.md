@@ -62,7 +62,7 @@ The function returns a data frame containing the columns:
 ``` r
 library(lablaster)
 load(file = "data/foram72shot3.rda")
-endpoint(df = foram72shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "FASLE",  timeUnits = "seconds")
+endpoint(df = foram72shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
 ```
 
 * The simplest usage, using all the default values. \
