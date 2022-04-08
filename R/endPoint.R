@@ -26,9 +26,9 @@
 #'
 #' @examples
 #' endPoint(df = foram72shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
-#' endPoint(df = foram166shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
-#' endPoint(df = foram174shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
-#' endPoint(df = coral6, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
+#' endPoint(df = foram166shot3, dt = 8, smoothing = 7, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
+#' endPoint(df = foram174shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca43", profile = "TRUE",  timeUnits = "seconds")
+#' endPoint(df = coral6, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "FALSE",  timeUnits = "milliseconds")
 
 #' @export
 
@@ -74,25 +74,25 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "
   dfReturn$endTime <- endTime # The last time step in your analysis after this function has been applied.
 
   if(profile == "TRUE"){
-    dfReturn$profile <- ggplot2::ggplot(df, aes(x=df[, grep(timeCol, names(df))[1]])) +
-      annotate("rect", xmin = startTime - 10, xmax = startTime, ymin = -Inf, ymax = Inf, fill ="red", alpha = 0.5)+ #change -10 to a percentage
-      annotate("rect", xmin = endTime, xmax = Inf, ymin = -Inf, ymax = Inf, fill = "red", alpha = 0.5)+
-      geom_point(aes(y=Ca44Scaled, colour = "Signal")) +
-      geom_line(aes(y=Ca44Scaled, colour = "Signal")) +
-      geom_line(aes(y=Ca44dydt, colour = "dydt")) +
-      geom_vline(xintercept = endTime, colour = "purple")+
-      geom_label(x = startTime - 10 , y = median(abs(scale(df[, grep(signalCol, names(df))[1]], center = TRUE))), label = paste("TRA started at", startTime, timeUnits), size = 2, hjust = "left")+
-      geom_label(x = endTime, y = mean(abs(scale(df[, grep(signalCol, names(df))[1]], center = TRUE))), label = paste("endTime \n (largest signal change - (dt/scanRate)) \n at", endTime, timeUnits), size = 2)+
-      labs(y = paste("Scaled", signalCol, "signal and rate of change"),
+    dfReturn$profile <- ggplot2::ggplot(df, ggplot2::aes(x=df[, grep(timeCol, names(df))[1]])) +
+      ggplot2::annotate("rect", xmin = startTime - 10, xmax = startTime, ymin = -Inf, ymax = Inf, fill ="red", alpha = 0.5)+ #change -10 to a percentage
+      ggplot2::annotate("rect", xmin = endTime, xmax = Inf, ymin = -Inf, ymax = Inf, fill = "red", alpha = 0.5)+
+      ggplot2::geom_point(ggplot2::aes(y=Ca44Scaled, colour = "Signal")) +
+      ggplot2::geom_line(ggplot2::aes(y=Ca44Scaled, colour = "Signal")) +
+      ggplot2::geom_line(ggplot2::aes(y=Ca44dydt, colour = "dydt")) +
+      ggplot2::geom_vline(xintercept = endTime, colour = "purple")+
+      ggplot2::geom_label(x = startTime - 10 , y = median(abs(scale(df[, grep(signalCol, names(df))[1]], center = TRUE))), label = paste("TRA started at", startTime, timeUnits), size = 2, hjust = "left")+
+      ggplot2::geom_label(x = endTime, y = mean(abs(scale(df[, grep(signalCol, names(df))[1]], center = TRUE))), label = paste("endTime \n (largest signal change - (dt/scanRate)) \n at", endTime, timeUnits), size = 2)+
+      ggplot2::labs(y = paste("Scaled", signalCol, "signal and rate of change"),
            x = paste("Time elapsed in", timeUnits),
            subtitle = paste("With a smoothing of", smoothing, "observations, a dt of", dt, "observations and (dt/scanRate) of", tailSeconds, timeUnits)
       )+
-      scale_x_continuous(limits = c(startTime-10, maxTime),
+      ggplot2::scale_x_continuous(limits = c(startTime-10, maxTime),
                          breaks = scales::pretty_breaks(n = 10))+
-      scale_colour_manual("",
+      ggplot2::scale_colour_manual("",
                           breaks = c("Signal", "dydt"),
                           values = c("black", "blue")) +
-      theme_bw()
+      ggplot2::theme_bw()
 
     # Data points located within the red shading are removed in the returned data frame as these are beyond
 
