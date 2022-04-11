@@ -61,7 +61,7 @@ The function returns a data frame containing the columns:
 * Example with every argument explicitly specified
 ``` r
 library(lablaster)
-load(file = "data/foram72shot3.rda")
+# Example data: An antepenultimate chamber of Menardella exilis foraminifera 72, identified hereon as "foram72shot3".
 endpoint(df = foram72shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
 ```
 

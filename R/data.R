@@ -1,6 +1,6 @@
 #' Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a planktonic foraminifera
 #'
-#' An antepenultimate chamber of Menardella exilis foraminifera 72, identified hereon as “Foram-72-shot-3”.
+#' An antepenultimate chamber of Menardella exilis foraminifera 72, identified hereon as “foram72shot3”.
 #'
 #' @format A data frame with 288 rows and 27 variables:
 #' \describe{
@@ -37,7 +37,7 @@
 
 #' Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a planktonic foraminifera
 #'
-#' An antepenultimate chamber of Menardella exilis foraminifera 174, identified hereon as “Foram-174-shot-4”.
+#' An antepenultimate chamber of Menardella exilis foraminifera 174, identified hereon as “foram174shot4”.
 #'
 #' @format A data frame with 288 rows and 27 variables:
 #' \describe{
@@ -73,7 +73,7 @@
 
 #' Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a planktonic foraminifera
 #'
-#' The fifth from final chamber of Menardella exilis foraminifera 166, identified hereon as “Foram-166-shot-7”.
+#' The fifth from final chamber of Menardella exilis foraminifera 166, identified hereon as “foram166shot7”.
 #'
 #' @format A data frame with 288 rows and 27 variables:
 #' \describe{
@@ -107,7 +107,7 @@
 #' }
 "foram166shot7"
 
-#' Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a branching coral
+#' Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a branching coral, identified hereon as “coral6”.
 #'
 #' A coral from Chris Standish.
 #'
