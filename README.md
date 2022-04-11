@@ -95,5 +95,7 @@ Thomas Ezard, J Andy Milton, Chris Standish and Gavin Foster.
 
 School of Ocean and Earth Science, National Oceanographic Centre Southampton, European Way, Southampton, SO14 3ZH, UK
 
+This work was supported by Natural Environment Research Council award NE/P019269/1.
+
 ## Licence
 This is released under GNU General Public License v3.0
