@@ -93,7 +93,7 @@ You should cite this function as
 ## Acknowledgements
 Thomas Ezard, J Andy Milton, Chris Standish and Gavin Foster.
 
-School of Ocean and Earth Science, National Oceanographic Centre Southampton, European Way, Southampton, SO14 3ZH, UK
+School of Ocean and Earth Science, National Oceanography Centre Southampton, European Way, Southampton, SO14 3ZH, UK
 
 This work was supported by Natural Environment Research Council award NE/P019269/1.
 
