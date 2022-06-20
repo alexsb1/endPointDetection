@@ -40,6 +40,6 @@ A data frame with 288 rows and 27 variables:
 foram174shot4
 }
 \description{
-An antepenultimate chamber of Menardella exilis foraminifera 174, identified hereon as “Foram-174-shot-4”.
+An antepenultimate chamber of Menardella exilis foraminifera 174, identified hereon as “foram174shot4”.
 }
 \keyword{datasets}

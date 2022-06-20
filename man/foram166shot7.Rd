@@ -40,6 +40,6 @@ A data frame with 288 rows and 27 variables:
 foram166shot7
 }
 \description{
-The fifth from final chamber of Menardella exilis foraminifera 166, identified hereon as “Foram-166-shot-7”.
+The fifth from final chamber of Menardella exilis foraminifera 166, identified hereon as “foram166shot7”.
 }
 \keyword{datasets}

@@ -3,7 +3,7 @@
 \docType{data}
 \name{coral6}
 \alias{coral6}
-\title{Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a branching coral}
+\title{Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a branching coral, identified hereon as “coral6”.}
 \format{
 A data frame with 1209 rows and 13 variables:
 \describe{
