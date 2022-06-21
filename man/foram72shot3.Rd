@@ -5,9 +5,8 @@
 \alias{foram72shot3}
 \title{Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a planktonic foraminifera}
 \format{
-A data frame with 288 rows and 27 variables:
+A data frame with 144 rows and 26 variables:
 \describe{
-\item{X}{row index}
 \item{Time}{time stamp of each observation (in seconds)}
 \item{Li7}{raw data for 7Li}
 \item{Be9}{raw data for 9Be}

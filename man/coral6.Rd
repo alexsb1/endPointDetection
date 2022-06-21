@@ -5,7 +5,7 @@
 \alias{coral6}
 \title{Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a branching coral, identified hereon as “coral6”.}
 \format{
-A data frame with 1209 rows and 13 variables:
+A data frame with 605 rows and 13 variables:
 \describe{
 \item{Time}{time stamp of each observation (in milliseconds)}
 \item{Li7}{raw data for 7Li}

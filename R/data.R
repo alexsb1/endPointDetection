@@ -2,9 +2,8 @@
 #'
 #' An antepenultimate chamber of Menardella exilis foraminifera 72, identified hereon as “foram72shot3”.
 #'
-#' @format A data frame with 288 rows and 27 variables:
+#' @format A data frame with 144 rows and 26 variables:
 #' \describe{
-#'   \item{X}{row index}
 #'   \item{Time}{time stamp of each observation (in seconds)}
 #'   \item{Li7}{raw data for 7Li}
 #'   \item{Be9}{raw data for 9Be}
@@ -39,9 +38,8 @@
 #'
 #' An antepenultimate chamber of Menardella exilis foraminifera 174, identified hereon as “foram174shot4”.
 #'
-#' @format A data frame with 288 rows and 27 variables:
+#' @format A data frame with 144 rows and 26 variables:
 #' \describe{
-#'   \item{X}{row index}
 #'   \item{Time}{time stamp of each observation (in seconds)}
 #'   \item{Li7}{raw data for 7Li}
 #'   \item{Be9}{raw data for 9Be}
@@ -75,9 +73,8 @@
 #'
 #' The fifth from final chamber of Menardella exilis foraminifera 166, identified hereon as “foram166shot7”.
 #'
-#' @format A data frame with 288 rows and 27 variables:
+#' @format A data frame with 144 rows and 26 variables:
 #' \describe{
-#'   \item{X}{row index}
 #'   \item{Time}{time stamp of each observation (in seconds)}
 #'   \item{Li7}{raw data for 7Li}
 #'   \item{Be9}{raw data for 9Be}
@@ -111,7 +108,7 @@
 #'
 #' A coral from Chris Standish.
 #'
-#' @format A data frame with 1209 rows and 13 variables:
+#' @format A data frame with 605 rows and 13 variables:
 #' \describe{
 #'   \item{Time}{time stamp of each observation (in milliseconds)}
 #'   \item{Li7}{raw data for 7Li}
