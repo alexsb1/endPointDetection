@@ -29,12 +29,12 @@
 #'  signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
 #' endPoint(df = foram166shot7, dt = 8, smoothing = 7, timeCol = "Time",
 #'  signalCol = "Ca44", profile = "FALSE",  timeUnits = "seconds")
-#'  \donttest{
+#'  \dontrun{
 #' endPoint(df = foram174shot4, dt = 10, smoothing = 5, timeCol = "Time",
 #'  signalCol = "Ca43", profile = "TRUE",  timeUnits = "seconds")
 #'  }
 #' endPoint(df = coral6, dt = 10, smoothing = 5, timeCol = "Time",
-#'  signalCol = "Ca43", profile = "FALSE",  timeUnits = "milliseconds")
+#'  signalCol = "Sr86", profile = "FALSE",  timeUnits = "milliseconds")
 
 #' @export
 #'
@@ -93,7 +93,7 @@ endPoint <- function(df, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "
       ggplot2::geom_label(x = endTime, y = mean(abs(scale(df[, grep(signalCol, names(df))[1]], center = TRUE))), label = paste("endTime \n (largest signal change - (dt/scanRate)) \n at", endTime, timeUnits), size = 2)+
       ggplot2::labs(y = paste("Scaled", signalCol, "signal and rate of change"),
            x = paste("Time elapsed in", timeUnits),
-           subtitle = paste("With a smoothing of", smoothing, "observations, a dt of", dt, "observations and (dt/scanRate) of", tailSeconds, timeUnits)
+           subtitle = paste("With a smoothing of", smoothing, "observations, \n a dt of", dt, "observations \n and dt/scanRate of", tailSeconds, timeUnits)
       )+
       ggplot2::scale_x_continuous(limits = c(startTime-10, maxTime),
                          breaks = scales::pretty_breaks(n = 10))+

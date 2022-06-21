@@ -5,34 +5,16 @@
 \alias{foram174shot4}
 \title{Time resolved analysis by laser ablation inductively coupled plasma mass spectrometry of a planktonic foraminifera}
 \format{
-A data frame with 144 rows and 26 variables:
+A data frame with 144 rows and 8 variables:
 \describe{
 \item{Time}{time stamp of each observation (in seconds)}
-\item{Li7}{raw data for 7Li}
-\item{Be9}{raw data for 9Be}
-\item{B11}{raw data for 11B}
 \item{Mg24}{raw data for 24Mg}
 \item{Al27}{raw data for 27Al}
 \item{Ca43}{raw data for 43Ca}
 \item{Ca44}{raw data for 44Ca}
 \item{Mn55}{raw data for 55Mn}
 \item{Cu65}{raw data for 65Cu}
-\item{Zn66}{raw data for 66Zn}
 \item{Sr88}{raw data for 88Sr}
-\item{Ba137}{raw data for 137Ba}
-\item{U238}{raw data for 238U}
-\item{backCorrLi7}{background corrected data for 7Li}
-\item{backCorrBe9}{background corrected data for 9Be}
-\item{backCorrB11}{background corrected data for 11B}
-\item{backCorrMg24}{background corrected data for 24Mg}
-\item{backCorrAl27}{background corrected data for 27Al}
-\item{backCorrCa43}{background corrected data for 43Ca}
-\item{backCorrCa44}{background corrected data for 44Ca}
-\item{backCorrMn55}{background corrected data for 55Mn}
-\item{backCorrCu65}{background corrected data for 65Cu}
-\item{backCorrZn66}{background corrected data for 66Zn}
-\item{backCorrSr88}{background corrected data for 88Sr}
-\item{backCorrBa137}{background corrected data for 137Ba}
 }
 }
 \usage{
