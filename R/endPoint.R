@@ -107,6 +107,12 @@ endPoint <- function(detectDf, dt = 10, smoothing = 5, timeCol = "Time", signalC
 
   }
 
+  # Show warning if the endTime is the last possible value.
+  # This is the same as maxTime - tailSeconds.
+  if(endTime == maxTime - tailSeconds){
+    warning("The endpoint detected was the last possible value.\n Check for over-smoothing or no burn through.")
+  }
+
   # Return data frame to global environment
   #.GlobalEnv$dfReturn <- dfReturn
 
