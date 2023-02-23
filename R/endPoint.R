@@ -41,7 +41,7 @@
 endPoint <- function(detectDf, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "FLASE",  timeUnits = "seconds"){
 
   # scanRate is the frequency of signal detection. The number of rows of data per second in your data frame.
-  scanRate <- 1 / (detectDf$Time[2] - detectDf$Time[1])
+  scanRate <- 1 / detectDf[, grep(timeCol, names(detectDf))][2] - detectDf[, grep(timeCol, names(detectDf))][1]
 
   # smooth the signal before detecting the rate of change.
   # A large value of order causes more smoothing
