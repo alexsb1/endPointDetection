@@ -41,7 +41,7 @@
 endPoint <- function(detectDf, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "FLASE",  timeUnits = "seconds"){
 
   # scanRate is the frequency of signal detection. The number of rows of data per second in your data frame.
-  scanRate <- 1 / detectDf[, grep(timeCol, names(detectDf))][2] - detectDf[, grep(timeCol, names(detectDf))][1]
+  scanRate <- 1 / (detectDf[, grep(timeCol, names(detectDf))][2] - detectDf[, grep(timeCol, names(detectDf))][1])
 
   # smooth the signal before detecting the rate of change.
   # A large value of order causes more smoothing
@@ -74,7 +74,7 @@ endPoint <- function(detectDf, dt = 10, smoothing = 5, timeCol = "Time", signalC
   # This data frame will be returned outside this function
   dfReturn <- NULL
 
-  dfReturn$df <- detectDf # Your data frame with only the rows that are between your startTime and endTime
+  dfReturn$df <- subset(detectDf, get(timeCol) <= endTime) # Your data frame with only the rows that are between your startTime and endTime
   dfReturn$exceededThresholdSubset <- NULL #not currently used
   dfReturn$startTime <- startTime # The first time step in your analysis after this function
   dfReturn$endTime <- endTime # The last time step in your analysis after this function has been applied.
