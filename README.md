@@ -92,7 +92,7 @@ Major and trace elements in the foraminifera test were analysed using a New Wave
 
 You should cite this function as
 
-`Searle-Barnes et al., "Laser Ablation BLASt Through Endpoint in R", 2022, https://github.com/alexsb1/lablaster`
+`Searle-Barnes et al., "Laser Ablation BLASt Through Endpoint in R", 2023, https://github.com/alexsb1/lablaster`
 
 ## Acknowledgements
 Thomas Ezard, J Andy Milton, Chris Standish and Gavin Foster.
