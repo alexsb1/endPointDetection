@@ -5,7 +5,7 @@
 
 ## Description
 
-Detect when the laser blasts through the target sample in a laser ablation mass spectrometry time resolved analysis.
+Detect when the laser ablates through the target sample in a laser ablation mass spectrometry time resolved analysis.
 
 This function imports a data frame containing a single time resolved laser ablation mass spectrometry analysis of a foraminifera (or other carbonate shell).
 It assumes that the first row contains the signal of the target sample and that background correction has already been applied.
@@ -34,7 +34,7 @@ install_github("alexsb1/lablaster")
 
 ## Arguments
 
-**df** A data frame containing a single time resolved analysis, with a column referencing time and another with the corresponding measured counts data.
+**detectDf** A data frame containing a single time resolved analysis, with a column referencing time and another with the corresponding measured counts data.
 
 **dt** An integer that controls the number of observations (rows) are used in calculating a rolling lagged difference in 44Ca signal. Using a lower value for a faster blast through of chamber wall can improve end point sensitivity. Default = 10.
 
@@ -66,7 +66,7 @@ The function returns a data frame containing the columns:
 ``` r
 library(lablaster)
 # Example data: An antepenultimate chamber of Menardella exilis foraminifera 72, identified hereon as "foram72shot3".
-endPoint(df = foram72shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
+endPoint(detectDf = foram72shot3, dt = 10, smoothing = 5, timeCol = "Time", signalCol = "Ca44", profile = "TRUE",  timeUnits = "seconds")
 ```
 
 * The simplest usage, using all the default values. \
