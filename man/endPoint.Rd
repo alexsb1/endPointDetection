@@ -17,7 +17,7 @@ endPoint(
 \arguments{
 \item{detectDf}{A data frame containing a single time resolved analysis, with a column referencing time and another with the corresponding measured counts data.}
 
-\item{dt}{An integer that controls the number of observations (rows) are used in calculating a rolling lagged difference in 44Ca signal. Using a lower value for a faster blast through of chamber wall can improve end point sensitivity. Default = 10.}
+\item{dt}{An integer that controls the number of observations (rows) are used in calculating a rolling lagged difference in 44Ca signal. Using a lower value for a faster ablation through of chamber wall can improve end point sensitivity. Default = 10.}
 
 \item{smoothing}{Controls the length of the moving average filter to apply over the dt period. Default = 5.}
 
@@ -45,7 +45,7 @@ It assumes that the first row contains the signal of the target sample and that 
 Column names referencing the time stamps and target signal are specified as function arguments.
 Then the signal column is evaluated by smoothing the values using a moving average, then scaled between 0-1 and the rate of change over a number of observations.
 \cr
-The function identifies the maximum rate of signal change, locates the corresponding time stamp and then subtracts the time it took for the laser to blast through the target.
+The function identifies the maximum rate of signal change, locates the corresponding time stamp and then subtracts the time it took for the laser to ablate through the target.
 The result (endTime) is the time stamp of the last observation while the laser is still focussed the desired target.
 }
 \examples{
